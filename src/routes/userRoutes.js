@@ -11,7 +11,7 @@ router.post(
   '/'
   // add restOfFunctions here, // demo only
 );
-router.get('/:id', authenticateToken, getUserById);
+// router.get('/:id', authenticateToken, getUserById);
 router.get(
   '/'
   // add restOfFunctions here, // demo only
