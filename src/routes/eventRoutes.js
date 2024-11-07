@@ -1,20 +1,15 @@
-import express from 'express';
+import express from "express";
 import {
   createEvent,
-  // add restOfFunctions here, // demo only
-} from '../controllers/eventController.js';
-import { authenticateToken } from '../middlewares/authMiddleware.js';
+  getEventById,
+  getAllEvents,
+} from "../controllers/eventController.js";
+import { authenticateToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
-
-router.post('/', authenticateToken, createEvent);
-router.get(
-  '/:id'
-  // add restOfFunctions here, // demo only
-);
-router.get(
-  '/'
-  // add restOfFunctions here, // demo only
-);
+router.post('/create_event', authenticateToken, createEvent);
+// router.post("/create_event", createEvent);
+router.get("/:event_id", getEventById);
+router.get("/", getAllEvents);
 
 export default router;

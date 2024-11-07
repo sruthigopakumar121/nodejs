@@ -8,6 +8,11 @@ export const authenticateToken = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'Authentication token required' });
   }
+  if (isTokenExpired(token)) {
+    return res.status(401).json({ message: 'Token has expired' });
+  }
+
+  if
 
   try {
     const user = jwt.verify(token, process.env.JWT_SECRET);
